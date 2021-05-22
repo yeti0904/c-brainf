@@ -1,17 +1,15 @@
 #include <stdio.h>
 #include <string.h>
-int main() {
+int main(int argc, char *argv[]) {
 	printf("C Brainf***\nMade by MESYETI\n");
-	int i;
-	int i2;
+	int i, i2, loopBegin, toprint;
 	unsigned int cellAt = 0; // which cell is selected
 	unsigned int cells[30000] = { 0 }; // 30000 cells for the program
-	char program[29999]; // where the program will be stored
-	char op; // operator in the program
+	char program[29999], op, commaOP; // where the program will be stored
+	// program: bf program
+	// op: current operator in interpreter
+	// commaOP: where input from the ',' operator is stored
 	int used = 0;
-	int loopBegin;
-	int toprint;
-	char commaOP; // , operator
 	printf("Type your Brainf*** program here> ");
 	scanf("%s", program);
 	printf("\n");
@@ -56,8 +54,7 @@ int main() {
 				break;
 			}
 			case '.': {
-				toprint = cells[cellAt];
-				printf("%c", (char)toprint);
+				putchar(cells[cellAt]);
 				break;
 			}
 			case ',': {
